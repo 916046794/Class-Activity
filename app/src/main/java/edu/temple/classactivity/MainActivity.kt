@@ -25,13 +25,18 @@ class MainActivity : AppCompatActivity() {
             var userInput = findViewById<TextView>(R.id.textEditLabel)
             var displayText = findViewById<TextView>(R.id.msgTextView)
 
-            if(userInput.text.isEmpty()){
+            //if the if and else were doing the same one action but different endings, you
+            //can do displayText.text = if(){}\nelse{}
+            if(userInput.text.isBlank()){
                 displayText.text = "Please input your name for real!"
             }
             else{
-                var str_holder = "Nice to meet you, ${userInput.text}"
-                displayText.text = str_holder
-                userInput.text = ""
+                //aka isNotEmpty() or !isEmpty()
+                var strHolder = "Nice to meet you, ${userInput.text}"
+                displayText.text = strHolder
+                //or userInput.text = "" like I did exc that's apparently an incompatible type
+                //oops
+                userInput.setText("")
             }
         }
     }
